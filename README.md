@@ -1,50 +1,49 @@
-# React + TypeScript + Vite
+# Angry Birds–Style Phaser Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Phaser 3 + Matter.js single-player Angry Birds–style game with a companion Express backend (auth, billing, admin, asset sync), editor, and build/deploy tooling.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Clone
+```bash
+git clone https://github.com/your-org/angrybird-clone.git
+cd angrybird-clone
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Install
+```bash
+npm install
 ```
+
+## Run the backend API
+```bash
+node backend/server.js
+# or
+npm run backend
+```
+Backend defaults to http://localhost:3000 and serves authentication, billing, admin, achievements, assets, TON simulation, and anti-cheat endpoints.
+
+## Run the frontend
+### Vite dev server (recommended)
+```bash
+npm run dev
+```
+Open the printed URL (usually http://localhost:5173) to play the game and access UI scenes, level select, shop, achievements, and settings.
+
+### Static file serving
+If you prefer a lightweight approach, serve `index.html` with any static server (e.g., `npx http-server .`). Ensure the backend is running separately for API features.
+
+## Editor
+Open `editor/map_editor.html` in a browser (or via the dev server) to drag-and-drop birds, pigs, boxes, TNT, and platforms, then export/import JSON levels.
+
+## Admin dashboard
+Navigate to `/admin/index.html` to view users, ban/unban, grant items, and manage TON payouts. Authenticate with the configured admin password/environment settings described in `docs/ADMIN_DASHBOARD.md`.
+
+## Build for CDN
+```bash
+node build/build.js
+node build/deploy_cdn.js
+```
+Artifacts are emitted to `dist/` with hashed filenames for cache busting. See `docs/CDN.md` for hosting guidance.
+
+## Environment
+Set secrets (JWT secret, admin password, HMAC secret, etc.) via environment variables as documented in `docs/README.md` and `docs/PAYMENTS.md` before running in production.
+
