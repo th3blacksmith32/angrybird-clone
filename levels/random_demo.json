@@ -1,0 +1,8 @@
+{
+  "name": "random_demo",
+  "birds": ["1x", "2x"],
+  "pigs": [{"x": 650, "y": 450, "hp": 80, "ai": false}],
+  "boxes": [{"x": 660, "y": 480}],
+  "tnt": [],
+  "platforms": [{"x": 660, "y": 500, "width": 120, "height": 20}]
+}

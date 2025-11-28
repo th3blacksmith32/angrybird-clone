@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { listUsers, ban, unban, grantItems, sendTon } from './adminController.js';
+import { authRequired } from '../auth/authMiddleware.js';
+const router = Router();
+router.get('/users', authRequired, listUsers);
+router.post('/ban', authRequired, ban);
+router.post('/unban', authRequired, unban);
+router.post('/grantItems', authRequired, grantItems);
+router.post('/sendTon', authRequired, sendTon);
+export default router;
