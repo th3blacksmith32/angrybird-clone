@@ -1,0 +1,7 @@
+[
+  {"id": "first_blood", "name": "First Blood", "description": "Kill your first pig"},
+  {"id": "box_breaker", "name": "Box Breaker", "description": "Destroy 50 boxes"},
+  {"id": "economist", "name": "Bird Economist", "description": "Finish level with unused birds"},
+  {"id": "tier_master", "name": "Tier Master", "description": "Use all tiers once"},
+  {"id": "one_shot", "name": "One-Shot Piggy", "description": "Clear level with one bird"}
+]

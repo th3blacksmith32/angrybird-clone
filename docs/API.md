@@ -1,0 +1,19 @@
+# API
+- POST /auth/signup {email,password}
+- POST /auth/login
+- POST /auth/telegramLogin {telegramId,username}
+- POST /auth/refresh
+- POST /billing/subscribe (fraud protected)
+- POST /billing/cancel
+- GET  /billing/status?userId=
+- POST /api/assets/levels/upload {levelName,data}
+- GET  /api/assets/levels/list
+- GET  /api/assets/levels/:levelName
+- POST /score/submit {userId,score,shotReport}
+- GET  /achievements/list
+- POST /achievements/unlock {userId,achievementId}
+- POST /save/save {userId,progress}
+- GET  /save/load?userId=
+- GET  /ton/balance?userId=
+- POST /ton/send {destinationWalletAddress,amount}
+- Admin: GET /admin/users, POST /admin/ban, /unban, /grantItems, /sendTon

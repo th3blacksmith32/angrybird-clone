@@ -1,0 +1,20 @@
+import { Router } from 'express';
+import authRoutes from './auth/authRoutes.js';
+import billingRoutes from './billing/billingRoutes.js';
+import achievementsRoutes from './achievements/achievementsRoutes.js';
+import saveRoutes from './save/saveRoutes.js';
+import assetsRoutes from './assets/assetsRoutes.js';
+import scoreRoutes from './score/scoreRoutes.js';
+import tonRoutes from './ton/tonRoutes.js';
+import adminRoutes from './admin/adminRoutes.js';
+
+const router = Router();
+router.use('/auth', authRoutes);
+router.use('/billing', billingRoutes);
+router.use('/achievements', achievementsRoutes);
+router.use('/save', saveRoutes);
+router.use('/api/assets', assetsRoutes);
+router.use('/score', scoreRoutes);
+router.use('/ton', tonRoutes);
+router.use('/admin', adminRoutes);
+export default router;
